@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Meetups</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/main.css">
+</head>
+<body>	
+  {% block content %}
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Meetup Groups</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form class="form-inline my-2 my-lg-0" action="{{url_for('meetups')}}" method="POST">
+          <input class="form-control mr-sm-2" type="number" name=zipcode placeholder="Enter a Zipcode" aria-label="Zipcode">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for Groups</button>
+        </form>
+      </div>
+    </nav>
+  <div style="padding: 3rem 1.5rem; text-align:center;z-index: 1000;">
+        <h1>Please Enter A Zipcode in the top right corner</h1>
+        <p class="lead">Please enter a zipcode in 5 digit format in the top left.<br> This will return a map of local meetups in your area.</p>
+    <p>{{zipcode}}</p>
+  </div> 
+  {% if graph %}
+  <div style="padding: 3rem 1.5rem;padding-top: 3rem; padding-bottom: 3rem; text-align:center;">
+      {{ graph|safe }}
+  </div>
+  {% endif %}
+{% endblock content %}
+</body>
+</html>

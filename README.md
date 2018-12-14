@@ -1,2 +1,2 @@
-# meetupGroupApp
-Utilizing the Meetup API to find local meetups based off of a user inputted zipcode
+# HCDE-310-Final
+Meetup Group Application

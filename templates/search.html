@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% block body %}
+<link rel="stylesheet" href="static/main.css">
+    <!--<div id="controls">-->
+        <!--<form action="{{ url_for('meetups') }}" method="post">-->
+            <!--<div class="form-group">-->
+                <!--<div class="input-group">-->
+                    <!--<label for="zipcode">Zipcode</label><br />&ndash;&gt;-->
+                    <!--<input type="number" name="zipcode" id = "zipcode" />-->
+                    <!--<br>-->
+                    <!--<label for="radius">Radius</label><br />-->
+                    <!--<input type="number" name="radius" id="radius" />-->
+                    <!--<br><br>-->
+                    <!--<input type="submit" value ="Submit" />-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+    <div class="card align-left controls" style="width: 18rem;">
+        <div class = "card-body">
+                <form action="{{url_for('meetups')}}" method="post">
+
+                    <label for="zipcode">Zipcode</label><br />
+                    <input type="number" name="zipcode" id = "zipcode" />
+                    <br>
+                    <label for="radius">Radius</label><br />
+                    <input type="number" name="radius" id="radius" />
+                    <br><br>
+                    <input type="submit" value="Submit" />
+                 </form>
+        </div>
+    </div>
+    <p>{{input}}</p>
+    <!--<div id="map">-->
+        <!--<iframe src="static/graph.html?{{timestamp}}"></iframe>-->
+    <!--</div>-->
+{% endblock %}
